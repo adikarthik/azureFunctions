@@ -39,24 +39,7 @@ public class Function {
         } else {
             return request.createResponseBuilder(HttpStatus.OK).body("Hello, this is a new Application: " + name).build();
         }
-    }
-     /**
-     * This function listens at endpoint "/api/HttpExample". Two ways to invoke it using "curl" command in bash:
-     * 1. curl -d "HTTP Body" {your host}/api/HttpExample
-     * 2. curl "{your host}/api/HttpExample?name=HTTP%20Query"
-     */
-    @FunctionName("/")
-    public HttpResponseMessage run(
-            @HttpTrigger(
-                name = "req",
-                methods = {HttpMethod.GET},
-                authLevel = AuthorizationLevel.ANONYMOUS)
-                HttpRequestMessage<Optional<String>> request,
-            final ExecutionContext context) {
-        context.getLogger().info("Java HTTP trigger processed a request.");
-
     
-            return request.createResponseBuilder(HttpStatus.OK).body("<html><body><h2>Test</h2><br/><p> this is sample website</p></body></html>").build();
     
     }
 }
